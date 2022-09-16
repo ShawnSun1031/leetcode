@@ -5,18 +5,32 @@ class TreeNode:
         self.left = left
         self.right = right
 
+# Recursive Inorder Traversal
+# class Solution:
+#     def inorderTraversal(self, root):
+#         if root == None:
+#             return []
+#         else:
+#             return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
 
+# Iterative Inorder Traversal
 class Solution:
     def inorderTraversal(self, root):
-        self.ans = []
-        if root.left != None:
-            self.inorderTraversal(root.left)
-        self.ans.append(root.val)
-        print(root.val)
-        if root.right != None:
-            self.inorderTraversal(root.right)
+        stack = []
+        res = []
 
-        return self.ans
+        while True:
+            while root:
+                stack.append(root)
+                root = root.left
+            
+            if stack == []:
+                break
+
+            root = stack.pop(-1)
+            res.append(root.val)
+            root = root.right
+        return res
 
 
 if __name__ == "__main__":
