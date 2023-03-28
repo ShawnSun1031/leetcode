@@ -8,15 +8,10 @@ class TreeNode:
 
 class Solution:
     def inorderTraversal(self, root):
-        self.ans = []
-        if root.left != None:
-            self.inorderTraversal(root.left)
-        self.ans.append(root.val)
-        print(root.val)
-        if root.right != None:
-            self.inorderTraversal(root.right)
-
-        return self.ans
+        if root == None:
+            return []
+        else:
+            self.inorderTraversal()
 
 
 if __name__ == "__main__":
